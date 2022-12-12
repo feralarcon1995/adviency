@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 
 const FormRegalo = () => {
 
-    const { gift, quantity, changeQuantity, handleSubmit, handleChange } = useGiftContext();
+    const { gift, quantity, changeQuantity, img, des, handleDes, handleImg, handleSubmit, handleChange } = useGiftContext();
 
 
     return (
@@ -14,15 +14,41 @@ const FormRegalo = () => {
         <form className="form" onSubmit={handleSubmit}>
             <OutlinedInput
                 id="outlined"
+                value={img}
+                onChange={handleImg}
+                aria-describedby="outlined-introducir-regalo-helper-text"
+                inputProps={{
+                    'aria-label': 'Link de imagen',
+                }}
+
+                sx={{ color: "#fff", width: "100%" }}
+                placeholder="Link de imagen del regalo..."
+                required
+            />
+            <OutlinedInput
+                id="outlined"
                 value={gift}
                 onChange={handleChange}
                 aria-describedby="outlined-introducir-regalo-helper-text"
                 inputProps={{
-                    'aria-label': 'Introducir Regalo',
+                    'aria-label': 'Nombre...',
                 }}
 
-                sx={{ color: "#fff", width: "50%" }}
-                placeholder="Introducir Regalo..."
+                sx={{ color: "#fff", width: "100%" }}
+                placeholder="Nombre del regalo ..."
+                required
+            />
+            <OutlinedInput
+                id="outlined"
+                value={des}
+                onChange={handleDes}
+                aria-describedby="outlined-introducir-regalo-helper-text"
+                inputProps={{
+                    'aria-label': 'Para quien es el regalo?',
+                }}
+
+                sx={{ color: "#fff", width: "100%" }}
+                placeholder="Para quien es el regalo?"
                 required
             />
 
@@ -37,8 +63,8 @@ const FormRegalo = () => {
                 inputProps={{
                     'aria-label': 'Introduce la cantidad',
                 }}
-                sx={{ color: "#fff", width: "10%" }}
-                placeholder="U"
+                sx={{ color: "#fff", width: "100%" }}
+                placeholder="Cantidad de regalos"
                 required
             />
             <Button

@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Mountains+of+Christmas:wght@700&display=swap');
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-weight: bold;
-  
-  }
 
-  
-.title{
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+
+.title {
   padding: 1rem;
   text-transform: uppercase;
   color: rgb(255, 0, 0);
@@ -18,31 +19,39 @@
 
 
 }
-h2{
+
+h2 {
   padding: 1rem 3px;
   color: rgb(255, 0, 0);
   font-family: 'Bebas Neue', cursive;
   font-size: 2rem;
 }
 
-.btn-dl{
+.btn-dl {
   width: 200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   align-self: flex-end;
 }
-.bg-gift{
+
+.btn-modal {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+
+.bg-gift {
   background: #fafafa;
   padding: 1rem;
   border-radius: .3rem;
-  box-shadow: 0px 0px 50px 10px rgba(0,0,0,0.75);
-  width: 40%;
+  box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.75);
+  width: 70%;
 }
 
 .bg-navidad {
   background: center / cover no-repeat url("../../media/examples/firefox-logo.svg"),
-  #03512a 35% url(https://i.ibb.co/kBvvzX8/bggg.png);
+    #03512a 35% url(https://i.ibb.co/kBvvzX8/bggg.png);
   box-shadow: 0px 0px 210px 27px rgba(0, 0, 0, 0.575) inset;
   display: flex;
   flex-direction: column;
@@ -53,6 +62,14 @@ h2{
   min-height: 100vh;
   max-height: 100%;
   position: relative;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  margin: 1rem 0;
 }
 
 .list-item {
@@ -66,17 +83,39 @@ h2{
   width: 90%;
   font-family: 'Bebas Neue', cursive;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 30%;
 }
 
-.list-item::first-letter{
+.list-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: .3rem;
+}
+
+.list-item>div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+.list-item>div>p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.list-item::first-letter {
   text-transform: uppercase;
   color: #510303;
 }
 
-.form{
+.form {
   width: 100%;
   margin-bottom: 1rem;
   background-color: #03512a;
@@ -84,21 +123,20 @@ h2{
   border-radius: .3rem;
 }
 
-.css-hf7eew-MuiInputBase-root-MuiOutlinedInput-root{
+.css-hf7eew-MuiInputBase-root-MuiOutlinedInput-root {
   width: 100%;
 }
 
-.img-santa{
+.img-santa {
   width: 200px;
   position: absolute;
   bottom: 5%;
   left: 5%;
 }
 
-.img-munieco{
+.img-munieco {
   width: 200px;
   position: absolute;
   bottom: 20%;
-  left: 70%;
+  left: 90%;
 }
-

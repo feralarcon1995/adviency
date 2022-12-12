@@ -3,9 +3,9 @@ import './App.css'
 import Box from '@mui/material/Box';
 import SantaCool from './assets/santacool.png';
 import Snowman from './assets/snowman.png';
-import FormRegalo from './components/FormRegalo.jsx';
 import GiftsContainer from './components/GiftsContainer';
 import Alerts from './components/Alerts';
+import ModalGift from './components/ModalGift';
 
 function App() {
 
@@ -21,7 +21,7 @@ function App() {
               Regalos:
             </h1>
             <Box mb={1}>
-              <FormRegalo />
+              <ModalGift/>
               <GiftsContainer/>
               <Alerts/>
             </Box>

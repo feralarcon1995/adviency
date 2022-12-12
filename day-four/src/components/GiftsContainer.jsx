@@ -5,24 +5,29 @@ import { FaTrashAlt } from 'react-icons/fa';
 
 const GiftsContainer = () => {
 
-    const { giftsList,handleDelete } = useGiftContext();
+    const { giftsList, handleDelete, handleClear } = useGiftContext();
 
     return (
-        <div>
-            <Stack
-                spacing={1}
-                direction="column"
-                justifyContent="center">
+        <>
+            <section
+                className="list">
                 {giftsList.map((gift, index) => (
-                    <li className="list-item" key={index} >
-                        {gift.name} <span>x{gift.uni}</span>
-                        <Button
-                            variant="contained"
-                            color="error"
-                            onClick={() => handleDelete(index)}>
-                            <FaTrashAlt />
-                        </Button>
-                    </li>
+                    <article className="list-item" key={index} >
+                        <img src={gift.img} alt={gift.name} />
+                        <div>
+                            <h2>{gift.name}</h2>
+                            <p>Cantidad: {gift.uni}</p>
+                            <p>Para: <span>{gift.dest}</span></p>
+
+                            <Button
+                                variant="contained"
+                                color="error"
+                                onClick={() => handleDelete(index)}>
+                                <FaTrashAlt />
+                            </Button>
+                        </div>
+
+                    </article>
 
                 ))}
 
@@ -36,8 +41,8 @@ const GiftsContainer = () => {
                         onClick={() => handleClear()}>
                         Limpiar lista|
                     </Button>}
-            </Stack>
-        </div>
+            </section>
+        </>
     )
 }
 

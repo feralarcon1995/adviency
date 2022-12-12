@@ -1,4 +1,4 @@
-import { createContext, useContext, useState , useEffect } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const GiftContext = createContext([]);
 
@@ -12,6 +12,8 @@ const GiftContextProvider = ({ children }) => {
     const [giftsList, setGiftsList] = useState(giftsLS);
     const [gift, setGift] = useState('');
     const [quantity, setQuantity] = useState('');
+    const [img, setImg] = useState('');
+    const [des, setDes] = useState('');
     const [alert, setAlert] = useState(false);
 
     useEffect(() => {
@@ -22,6 +24,13 @@ const GiftContextProvider = ({ children }) => {
         setGift(e.target.value);
     }
 
+    const handleImg = (e) => {
+        setImg(e.target.value);
+    }
+
+    const handleDes = (e) => {
+        setDes(e.target.value);
+    }
     const changeQuantity = (e) => {
         setQuantity(parseInt(e.target.value));
     };
@@ -34,13 +43,16 @@ const GiftContextProvider = ({ children }) => {
         if (gift && index === -1) {
             const newGift = {
                 id: giftsList.length + 1,
+                img: img,
                 name: gift,
+                dest: des,
                 uni: quantity
             }
 
             setGiftsList([newGift, ...giftsList])
-
+            setImg('')
             setGift('')
+            setDes('')
             setQuantity('')
         } else {
             giftsList[index].uni += quantity,
@@ -75,8 +87,12 @@ const GiftContextProvider = ({ children }) => {
             giftsList,
             gift,
             quantity,
+            img,
+            des,
             handleClose,
             handleChange,
+            handleImg,
+            handleDes,
             changeQuantity,
             handleSubmit,
             handleDelete,
