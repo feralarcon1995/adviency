@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState , useEffect } from "react";
 
 const GiftContext = createContext([]);
 
@@ -7,10 +7,16 @@ export const useGiftContext = () => useContext(GiftContext);
 
 const GiftContextProvider = ({ children }) => {
 
-    const [giftsList, setGiftsList] = useState([{ id: 0, name: 'ropa', uni: 23 },]);
+    const giftsLS = JSON.parse(localStorage.getItem('giftsList') || '[]');
+
+    const [giftsList, setGiftsList] = useState(giftsLS);
     const [gift, setGift] = useState('');
     const [quantity, setQuantity] = useState('');
     const [alert, setAlert] = useState(false);
+
+    useEffect(() => {
+        localStorage.setItem('giftsList', JSON.stringify(giftsList));
+    }, [giftsList]);
 
     const handleChange = (e) => {
         setGift(e.target.value);
@@ -34,8 +40,6 @@ const GiftContextProvider = ({ children }) => {
 
             setGiftsList([newGift, ...giftsList])
 
-            console.info(giftsList)
-
             setGift('')
             setQuantity('')
         } else {
@@ -46,6 +50,7 @@ const GiftContextProvider = ({ children }) => {
 
         setAlert(true)
     }
+
 
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
