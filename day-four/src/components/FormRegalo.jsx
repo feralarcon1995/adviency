@@ -23,12 +23,13 @@ const FormRegalo = () => {
 
                 sx={{ color: "#fff", width: "50%" }}
                 placeholder="Introducir Regalo..."
+                required
             />
 
             <OutlinedInput
                 id="outlined-adornment"
                 type="number"
-                defaultValue={quantity}
+                value={quantity}
                 onChange={changeQuantity}
                 min={1}
                 max={50}
@@ -38,6 +39,7 @@ const FormRegalo = () => {
                 }}
                 sx={{ color: "#fff", width: "10%" }}
                 placeholder="U"
+                required
             />
             <Button
                 variant="contained"

@@ -7,7 +7,7 @@ export const useGiftContext = () => useContext(GiftContext);
 
 const GiftContextProvider = ({ children }) => {
 
-    const [giftsList, setGiftsList] = useState([{ id: 0, name: 'Caramelos', uni: 3 }, { id: 1, name: 'Medias', uni: 6 }, { id: 2, name: 'Vitel Tone', uni: 2 }]);
+    const [giftsList, setGiftsList] = useState([{ id: 0, name: 'ropa', uni: 23 },]);
     const [gift, setGift] = useState('');
     const [quantity, setQuantity] = useState('');
     const [alert, setAlert] = useState(false);
@@ -23,13 +23,19 @@ const GiftContextProvider = ({ children }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const lastId = giftsList.length > 0 ? giftsList[giftsList.length - 1].id + 1 : 0;
-        const index = giftsList.map(gift => gift.name.toLowerCase().trim()).indexOf(gift.toLowerCase().trim());
-
+        const index = giftsList.map(r => r.name.toLowerCase().trim()).indexOf(gift.toLowerCase().trim());
+        console.info(index)
         if (gift && index === -1) {
-            let newGift = { id: lastId, name: giftsList, uni: quantity }
-            setGiftsList([...giftsList, newGift])
-            console.log(giftsList)
+            const newGift = {
+                id: giftsList.length + 1,
+                name: gift,
+                uni: quantity
+            }
+
+            setGiftsList([newGift, ...giftsList])
+
+            console.info(giftsList)
+
             setGift('')
             setQuantity('')
         } else {

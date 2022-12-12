@@ -5,7 +5,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 
 const GiftsContainer = () => {
 
-    const { giftsList } = useGiftContext();
+    const { giftsList,handleDelete } = useGiftContext();
 
     return (
         <div>
@@ -13,17 +13,16 @@ const GiftsContainer = () => {
                 spacing={1}
                 direction="column"
                 justifyContent="center">
-                {giftsList.map((gift, i) => (
-                    <li className="list-item" key={i} >
+                {giftsList.map((gift, index) => (
+                    <li className="list-item" key={index} >
                         {gift.name} <span>x{gift.uni}</span>
                         <Button
                             variant="contained"
                             color="error"
-                            onClick={() => handleDelete(gift.id)}>
+                            onClick={() => handleDelete(index)}>
                             <FaTrashAlt />
                         </Button>
                     </li>
-
 
                 ))}
 
